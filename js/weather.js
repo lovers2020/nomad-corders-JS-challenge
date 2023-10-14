@@ -1,4 +1,5 @@
 const API_KEY = "5f36f1ffb61f125fd67aa51147174af7";
+const weatherEl = document.getElementById("weather");
 
 function onGeoOk(position) {
   const lat = position.coords.latitude;
@@ -8,17 +9,22 @@ function onGeoOk(position) {
     .then((response) => response.json())
     .then((data) => {
       console.log(data);
-      const temp = document.querySelector("#weather span:first-child");
-      const weather = document.querySelector("#weather .weather__weather span");
-      temp.textContent = `${Math.round(data.main.temp)}°C`;
-      weather.innerText = data.weather[0].main;
-      const location = data.name;
+      const temp = document.querySelector(".weather__temp span:first-child");
+      const location = document.querySelector(".weather__temp span:last-child");
+      const weather = data.weather[0].icon;
+
+      temp.textContent = `${Math.round(data.main.temp)} °C`;
+      location.innerText = data.name;
+
+      const weatherIcon = document.createElement("img");
+      weatherIcon.src = `https://openweathermap.org/img/wn/${weather}.png`;
+      weatherEl.appendChild(weatherIcon);
 
       console.log(location, weather, temp);
     });
 }
-function onGeoError(position) {
-  alert("Error");
+function onGeoError() {
+  alert("Can't find your location!");
 }
 
 navigator.geolocation.getCurrentPosition(onGeoOk, onGeoError);
