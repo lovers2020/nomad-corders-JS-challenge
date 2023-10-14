@@ -12,6 +12,7 @@
   <script defer type="module" src="js/background.js"></script>
   <script defer type="module" src="js/clock.js"></script>
   <script defer type="module" src="js/weather.js"></script>
+  <script defer type="module" src="js/login.js"></script>
 </head>
 
 <body>
@@ -23,16 +24,18 @@
       <span></span>
     </div>
   </div>
-  <form>
-    <div id="login">
-      <input type="text" required placeholder="Enter your id">
+  <form class="login">
+    <div id="login-input">
+      <input type="text" required placeholder="Input your ID">
       <input type="password" required placeholder="Password">
     </div>
     <div id="submit">
-      <button type="submit">Submit!</button>
+      <button type="submit">LogIn!</button>
     </div>
-
   </form>
+  <div class="welcome-message">
+    <span>Hello! </span>
+  </div>
 
 
 </body>

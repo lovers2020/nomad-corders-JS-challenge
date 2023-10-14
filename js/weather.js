@@ -8,7 +8,6 @@ function onGeoOk(position) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       const temp = document.querySelector(".weather__temp span:first-child");
       const location = document.querySelector(".weather__temp span:last-child");
       const weather = data.weather[0].icon;
@@ -19,8 +18,6 @@ function onGeoOk(position) {
       const weatherIcon = document.createElement("img");
       weatherIcon.src = `https://openweathermap.org/img/wn/${weather}.png`;
       weatherEl.appendChild(weatherIcon);
-
-      console.log(location, weather, temp);
     });
 }
 function onGeoError() {

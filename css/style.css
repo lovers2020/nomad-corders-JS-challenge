@@ -9,7 +9,6 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 .bgImg {
   position: absolute;
   top: 0;
@@ -44,18 +43,12 @@ body {
   width: 80px;
   height: 80px;
 }
-form {
+.login {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-}
-#login input {
+.login input {
   width: 200px;
   border: 1px solid #fff;
   margin: 0.4rem 0;
@@ -65,9 +58,22 @@ form {
   padding: 0.5rem;
 }
 #submit button {
-  width: 60px;
+  width: 80px;
   height: 30px;
   background-color: #fff;
   border-radius: 10px;
   border: none;
+  text-align: center;
+  cursor: pointer;
+}
+.welcome-message {
+  margin: 2rem 0;
+}
+.welcome-message span {
+  color: #fff;
+  font-size: 32px;
+}
+
+.hidden {
+  display: none;
 }
