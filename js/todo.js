@@ -5,7 +5,19 @@ const addTodoList = document.querySelector(".todo-list");
 const TODOS_KEY = "todos";
 let toDos = [];
 
+function isToDoListEmpty() {
+  console.log(toDos);
+  const addEmptyText = document.querySelector(".todo-list p");
+
+  if (toDos[0] !== undefined) {
+    addEmptyText.classList.add("hidden");
+  } else {
+    addEmptyText.classList.remove("hidden");
+  }
+}
+
 function saveToDos() {
+  isToDoListEmpty();
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
@@ -54,3 +66,6 @@ if (savedToDos) {
   toDos = parsedToDos;
   parsedToDos.forEach(inputToDo);
 }
+
+
+isToDoListEmpty();

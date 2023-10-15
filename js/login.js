@@ -14,7 +14,6 @@ function displayLoginMessage() {
   const displayToDoList = document.querySelector(".input-todolist");
 
   displayToDoList.classList.remove(HIDDEN_CLASS);
-  displayToDoList.classList.add("fade-in");
   addTodoList.classList.remove(HIDDEN_CLASS);
 }
 
