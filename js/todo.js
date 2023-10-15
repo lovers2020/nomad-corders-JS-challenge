@@ -6,7 +6,6 @@ const TODOS_KEY = "todos";
 let toDos = [];
 
 function isToDoListEmpty() {
-  console.log(toDos);
   const addEmptyText = document.querySelector(".todo-list p");
 
   if (toDos[0] !== undefined) {
@@ -66,6 +65,5 @@ if (savedToDos) {
   toDos = parsedToDos;
   parsedToDos.forEach(inputToDo);
 }
-
 
 isToDoListEmpty();
