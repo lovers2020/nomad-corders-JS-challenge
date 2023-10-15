@@ -1,15 +1,19 @@
 const toDo = document.querySelector(".input-todolist input");
 const toDoForm = document.querySelector(".input-todolist");
 const addTodoList = document.querySelector(".todo-list");
-const toDos = [];
 
-function saveTodos() {
-  localStorage.setItem("todos", toDos);
+const TODOS_KEY = "todos";
+let toDos = [];
+
+function saveToDos() {
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos));
 }
 
 function deleteToDo(event) {
   const li = event.target.parentElement;
   li.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  saveToDos();
 }
 
 function inputToDo(newTodo) {
@@ -17,12 +21,14 @@ function inputToDo(newTodo) {
   const span = document.createElement("span");
   const button = document.createElement("button");
 
-  span.textContent = newTodo;
+  span.textContent = newTodo.text;
   li.appendChild(span);
 
   button.classList.add("material-symbols-outlined");
   button.textContent = "delete";
   button.addEventListener("click", deleteToDo);
+
+  li.id = newTodo.id;
   li.append(button);
 
   addTodoList.appendChild(li);
@@ -31,8 +37,20 @@ function inputToDo(newTodo) {
 toDoForm.addEventListener("submit", function (e) {
   e.preventDefault();
   const newTodo = toDo.value;
-  toDos.push(newTodo);
+  const newTodoObj = {
+    text: newTodo,
+    id: Date.now(),
+  };
+  toDos.push(newTodoObj);
   toDo.value = "";
-  inputToDo(newTodo);
-  saveTodos();
+  inputToDo(newTodoObj);
+  saveToDos();
 });
+
+const savedToDos = localStorage.getItem(TODOS_KEY);
+
+if (savedToDos) {
+  const parsedToDos = JSON.parse(savedToDos);
+  toDos = parsedToDos;
+  parsedToDos.forEach(inputToDo);
+}

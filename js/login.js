@@ -2,6 +2,7 @@ const loginForm = document.querySelector(".login");
 const submitBtn = document.querySelector(".login button");
 const inputId = document.querySelector(".login input");
 const welcomeMessage = document.querySelector(".welcome-message span");
+const addTodoList = document.querySelector(".todo-list");
 
 const HIDDEN_CLASS = "hidden";
 
@@ -11,7 +12,10 @@ function displayLoginMessage() {
   welcomeMessage.textContent = `Hello! ${localStorage.getItem("id")}`;
 
   const displayToDoList = document.querySelector(".input-todolist");
+
   displayToDoList.classList.remove(HIDDEN_CLASS);
+  displayToDoList.classList.add("fade-in");
+  addTodoList.classList.remove(HIDDEN_CLASS);
 }
 
 if (localStorage.getItem("id") == null) {
