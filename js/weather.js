@@ -1,5 +1,6 @@
 const API_KEY = "5f36f1ffb61f125fd67aa51147174af7";
 const weatherEl = document.getElementById("weather");
+const weatherEl2 = document.querySelector(".weather__weather");
 
 function onGeoOk(position) {
   const lat = position.coords.latitude;
@@ -7,7 +8,7 @@ function onGeoOk(position) {
   const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`;
   fetch(url)
     .then((response) => response.json())
-    .then((data) => {
+    .then((data) => { 
       const temp = document.querySelector(".weather__temp span:first-child");
       const location = document.querySelector(".weather__temp span:last-child");
       const weather = data.weather[0].icon;
@@ -17,7 +18,11 @@ function onGeoOk(position) {
 
       const weatherIcon = document.createElement("img");
       weatherIcon.src = `https://openweathermap.org/img/wn/${weather}.png`;
-      weatherEl.appendChild(weatherIcon);
+      weatherEl2.appendChild(weatherIcon);
+
+      const weatherText = document.createElement("span");
+      weatherText.textContent = `${data.weather[0].main}`;
+      weatherEl2.appendChild(weatherText);
     });
 }
 function onGeoError() {
