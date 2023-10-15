@@ -8,7 +8,6 @@ function onGeoOk(position) {
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       const temp = document.querySelector(".weather__temp span:first-child");
       const location = document.querySelector(".weather__temp span:last-child");
       const weather = data.weather[0].icon;

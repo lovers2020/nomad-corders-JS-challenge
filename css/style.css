@@ -81,14 +81,21 @@ body {
   color: #fff;
   font-size: 64px;
 }
-.todo-list {
+.input-todolist {
   display: flex;
   width: 25%;
   position: absolute;
   top: 300px;
-  left: 20px;
+  left: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 3px 3px rgba(0, 0, 0, 0.1);
+  transition: scale 0.3s ease-in-out;
 }
-.todo-list input {
+.input-todolist:hover {
+  scale: 1.05;
+}
+.input-todolist input {
+  font-size: 18px;
   width: 100%;
   padding: 0.5rem;
   margin-right: 1rem;
@@ -98,12 +105,15 @@ body {
   opacity: 0.8;
   outline: none;
 }
-.todo-list button {
+.input-todolist button {
   border: 1px solid #fff;
   border-radius: 10px;
   opacity: 0.8;
   outline: none;
   cursor: pointer;
+}
+.todolist {
+  background-color: orange;
 }
 .hidden {
   display: none;
