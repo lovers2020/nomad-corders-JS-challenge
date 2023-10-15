@@ -3,6 +3,6 @@ const chosenImages = images[Math.floor(Math.random() * images.length)];
 
 const bgImage = document.createElement("img");
 
-bgImage.src = `/image/${chosenImages}`;
+bgImage.src = `image/${chosenImages}`;
 
 document.body.appendChild(bgImage).classList.add("bgImg");
