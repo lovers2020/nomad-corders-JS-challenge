@@ -6,6 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To do List</title>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 
   <link rel="stylesheet" href="css/style.css">
   <script defer type="module" src="js/index.js"></script>
@@ -13,29 +15,44 @@
   <script defer type="module" src="js/clock.js"></script>
   <script defer type="module" src="js/weather.js"></script>
   <script defer type="module" src="js/login.js"></script>
+  <script defer type="module" src="js/todo.js"></script>
 </head>
 
 <body>
-  <h1 id="clock"></h1>
-
-  <div id="weather">
-    <div class="weather__temp">
-      <span></span>
-      <span></span>
+  <div class="header">
+    <div></div>
+    <h1 id="clock"></h1>
+    <div id="weather">
+      <div class="weather__temp">
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </div>
+
   <form class="login">
     <div id="login-input">
-      <input type="text" required placeholder="Input your ID">
-      <input type="password" required placeholder="Password">
+      <input type="text" required placeholder="Input your name">
     </div>
     <div id="submit">
       <button type="submit">LogIn!</button>
     </div>
   </form>
   <div class="welcome-message">
-    <span>Hello! </span>
+    <span></span>
   </div>
+
+  <form class="todo-list">
+    <input type="text" placeholder="Write your To-Do List!">
+    <button type="submit">
+      <span class="material-symbols-outlined">
+        save
+      </span>
+    </button>
+
+  </form>
+
+
 
 
 </body>
